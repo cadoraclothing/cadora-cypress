@@ -1,0 +1,82 @@
+<div class="page-header">
+  <h1>{{ 'cart.header' | t }}</h1>
+</div>
+
+<div class="cart content" role="main">
+
+{% if cart.item_count > 0 %}
+
+  <form action="/cart" method="post" class="clearfix">
+
+    <table class="cart-products">
+      <thead>
+        <tr>
+          <th class="item">{{ 'general.item' | t }}</th>
+          <th class="price">{{ 'general.price' | t }}</th>
+          <th class="quantity">{{ 'general.quantity' | t }}</th>
+          <th class="total">{{ 'general.total' | t }}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for item in cart.items %}
+          <tr class="{% include 'for-looper' %} variant-{{ item.variant.id }}">
+            <td class="product-item">
+              <div class="product-wrap">
+                <a class="remove" href="/cart/change/{{ item.variant.id }}?quantity=0" data-variant-id="{{ item.variant.id }}">{{ 'cart.remove_from_cart' | t }}</a>
+                <a class="cart-thumbnail" href="{{ item.url }}">
+                  {% if item.product.images.size > 0 %}
+                    {{ item | img_url: 'small' | img_tag }}
+                  {% else %}
+                    <img class="product-no-images" src="{{ 'no-image.svg' | asset_url }}" alt="{{ 'products.product.no_image' | t }}" />
+                  {% endif %}
+                </a>
+                <div class="cart-details">
+                  <span class="vendor">{{ item.vendor | link_to_vendor }}</span>
+                  <span class="title">{{ item.product.title | link_to: item.url }}</span>
+                  <span class="variant">{{ item.variant.title }}</span>
+                </div>
+              </div>
+            </td>
+            <td class="price">{{ item.price | money }}</td>
+            <td class="quantity"><input type="text" value="{{ item.quantity }}" data-id="{{ item.variant.id }}"></td>
+            <td class="total">{{ item.quantity | times: item.price | money }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+
+    <div class="cart-tools">
+
+      <div class="instructions">
+        <p>{{ 'cart.special_instructions' | t }}</p>
+        <textarea placeholder="{{ 'cart.notes_placeholder' | t }}" name="note">{{ cart.note }}</textarea>
+      </div>
+
+      {% if settings.show-shipping-calculator and cart.requires_shipping %}
+        {% include 'shipping-calculator' %}
+      {% endif %}
+    </div>
+
+    <div class="cart-totals">
+      <p>{{ 'cart.your_total' | t }}</p>
+      <p class="price">{{ cart.total_price | money }}</p>
+      <p class="message">{{ 'cart.tax_and_shipping' | t }}</p>
+      <input type="submit" name="checkout" value="{{ 'cart.submit' | t }}" />
+      {% if settings.continue-shopping %}
+        <a class="button secondary" href="{{ settings.continue-shopping-url }}">{{ 'cart.continue' | t }}</a>
+      {% endif %}
+    </div>
+
+  </form>
+
+{% else %}
+  
+  <div class="empty">
+    <p>{{ 'cart.empty' | t }}</p>
+    <a class="button" href="{{ settings.continue-shopping-url }}">{{ 'cart.continue' | t }}</a>
+  </div>
+
+{% endif %}
+</div>
