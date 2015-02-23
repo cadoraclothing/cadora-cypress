@@ -34,7 +34,7 @@
           {% endunless %}
 
           {% if item.featured_image %}
-            <div class="search-result-image"><a href="{{item.url}}">{{ item.featured_image | product_img_url: '1024x1024' | img_tag }}</a></div>
+            <div class="search-result-image"><a href="{{item.url}}">{{ item.featured_image | product_img_url: 'medium' | img_tag }}</a></div>
           {% endif %}
 
           {% if item.price %}
