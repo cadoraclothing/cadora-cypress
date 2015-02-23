@@ -19,6 +19,7 @@
   </figure>
 
   <div class="product-list-details">
+    <p class="vendor"><a href="{{ item.vendor | url_for_vendor }}">{{ item.vendor }}</a></p>
     <p class="title"><a href="{{ item.url | within: collection }}">{{ item.title }}</a></p>
     <p class="product-price">
     {% if item.available %}
