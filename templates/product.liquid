@@ -4,7 +4,6 @@
     <h1>{{ product.title }}</h1>
 
     <div class="product-details mobile">
-      <a class="product-brands" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
       {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
         <span class="product-price on-sale"><span class="original">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span> {{ product.selected_or_first_available_variant.price | money }}</span>
       {% else %}
@@ -40,7 +39,6 @@
   <div class="product-info">
 
     <div class="product-details desktop">
-      <a class="product-brands" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
       {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
         <span class="product-price on-sale"><span class="original">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span> {{ product.selected_or_first_available_variant.price | money }}</span>
       {% else %}
