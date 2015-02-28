@@ -24,6 +24,8 @@
 
   <a target="_blank" href="//twitter.com/share?url={{ permalinkURL }}" class="share-twitter"><span>{{ 'general.social.tweet' | t }}</span> <span class="share-count"></span></a>
 
+  <a target="_blank" href="http://www.polyvore.com" name="addToPolyvore" id="addToPolyvore" data-product-url="{{ permalinkURL }}" data-image-url="http:{{ product.featured_image | product_img_url: 'original' }}" data-name="{{ product.title }}" data-price="{{ product.selected_or_first_available_variant.price | money }}" class="share-polyvore"><span>Polyvore</span></a>
+
   {% if template contains 'product' %}
 
     <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ product.featured_image | product_img_url: 'original' }}&amp;description={{ product.title | escape }}" class="share-pinterest"><span>{{ 'general.social.pin_it' | t }}</span> <span class="share-count"></span></a>
