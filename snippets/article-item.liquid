@@ -52,22 +52,21 @@
       {{ article.content }}
     {% endif %}
 
+	{% if settings.blog-display-share-buttons %}
+	    <p>{% include 'share-buttons' %}</p>
+    {% endif %}
+
     {% if settings.display-article-author %}
-    <p class="article-author">
-      {% capture author %}
-        {% if article.user.homepage.size > 0 %}<a href="{{ article.user.homepage }}">{% endif %}
-          {{ article.user.name }}
-        {% if article.user.homepage.size > 0 %}</a>{% endif %}
-      {% endcapture %}
-      {{ 'blogs.article_item.written_by_html' | t: author: author }}
-    </p>
+	<!-- BEGIN Display Author Block -->
+      <footer class="article-footer">    
+		<p class="article-author">
+			{{ article.user.first_name }} {{ article.user.last_name }}      
+        	{% if article.user.bio.size > 0 %}
+				<p>{{ article.user.bio }}</p>
+			{% endif %}
+			<p><img src="https://www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}" /></p>
+	  </footer>
+	<!-- END Display Author Block -->
     {% endif %}
   </div>
-
-  {% if settings.blog-display-share-buttons %}
-  <footer class="article-footer">
-    {% include 'share-buttons' %}
-  </footer>
-  {% endif %}
-
 </article>
