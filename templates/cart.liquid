@@ -6,24 +6,28 @@
 
 {% if cart.item_count > 0 %}
 
-  <form action="/cart" method="post" class="clearfix">
-
+	<!-- FREE SHIPPING ALERT -->
+	{% include 'shipping-alert' %}
+	<!-- END SHIPPING ALERT -->
+	
+  <form action="/cart" method="post" class="clearfix">	
     <table class="cart-products">
-      <thead>
-        <tr>
-          <th class="item">{{ 'general.item' | t }}</th>
-          <th class="price">{{ 'general.price' | t }}</th>
-          <th class="quantity">{{ 'general.quantity' | t }}</th>
-          <th class="total">{{ 'general.total' | t }}</th>
+	 <thead>        
+		<tr>
+        	<th class="item">{{ 'general.item' | t }}</th>
+        	<th class="price">{{ 'general.price' | t }}</th>
+        	<th class="quantity">{{ 'general.quantity' | t }}</th>
+        	<th class="total">{{ 'general.total' | t }}</th>
         </tr>
-      </thead>
+     </thead>
 
       <tbody>
         {% for item in cart.items %}
           <tr class="{% include 'for-looper' %} variant-{{ item.variant.id }}">
             <td class="product-item">
               <div class="product-wrap">
-                <a class="remove" href="/cart/change/{{ item.variant.id }}?quantity=0" data-variant-id="{{ item.variant.id }}">{{ 'cart.remove_from_cart' | t }}</a>
+                <!--<a class="remove" href="/cart/change/{{ item.variant.id }}?quantity=0" data-variant-id="{{ item.variant.id }}">{{ 'cart.remove_from_cart' | t }}</a>-->
+				<a class="remove-item" href="/cart/change/{{ item.variant.id }}?quantity=0" data-variant-id="{{ item.variant.id }}">{{ 'cart.remove_from_cart' | t }}</a>
                 <a class="cart-thumbnail" href="{{ item.url }}">
                   {% if item.product.images.size > 0 %}
                     {{ item | img_url: 'small' | img_tag }}

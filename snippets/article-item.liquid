@@ -57,16 +57,7 @@
     {% endif %}
 
     {% if settings.display-article-author %}
-	<!-- BEGIN Display Author Block -->
-      <footer class="article-footer">    
-		<p class="article-author">
-			{{ article.user.first_name }} {{ article.user.last_name }}      
-        	{% if article.user.bio.size > 0 %}
-				<p>{{ article.user.bio }}</p>
-			{% endif %}
-			<p><img src="https://www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}" /></p>
-	  </footer>
-	<!-- END Display Author Block -->
+		{% include 'article-byline' %}
     {% endif %}
   </div>
 </article>
