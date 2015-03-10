@@ -1,5 +1,5 @@
-{% if cart.total_price >= 4500 %}
+{% if cart.total_price >= 7500 %}
       <div class="shipping-notice">HOORAY! Your order qualifies for <strong>FREE</strong> Ground or discounts on 1, 2 and 3 Day options :-)</div>
- {% elsif cart.total_price < 4500 %}
+ {% elsif cart.total_price < 7500 %}
        <div class="shipping-notice">You're only {{ 4500 | minus: cart.total_price | money }} away from <strong>FREE</strong> shipping! <a href="{{ settings.continue-shopping-url }}">{{ 'cart.continue' | t }}</a></div>
 {% endif %}
