@@ -111,6 +111,22 @@ textarea { overflow: auto; vertical-align: top; }
 /* normalize.css v1.1.0 | Tables | MIT License | git.io/normalize */
 table { border-collapse: collapse; border-spacing: 0; }
 
+/* shipping table */
+#rates { 
+	border-collapse: collapse; 
+}
+.rules { 
+	width: 20%;
+	vertical-align: top;	
+}
+.fineprint {
+	font-weight: 300;
+	font-size: 12px;
+}
+.usps-free-ship {
+	background: #DFF3CC;
+}
+
 {% capture userFonts %}{{ settings.title-font }} {{ settings.body-font }} {{ settings.heading-font }} {{ settings.meta-font }}{% endcapture %}
 
 /* Sans Serif */
