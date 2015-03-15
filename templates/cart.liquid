@@ -5,11 +5,11 @@
 <div class="cart content" role="main">
 
 {% if cart.item_count > 0 %}
+  
+ 	{% comment %}
+		We will call shipping-alert snippet here once we get the cart logic localized.
+	{% endcomment %}
 
-	<!-- FREE SHIPPING ALERT -->
-	{% include 'shipping-alert' %}
-	<!-- END SHIPPING ALERT -->
-	
   <form action="/cart" method="post" class="clearfix">	
     <table class="cart-products">
 	 <thead>        

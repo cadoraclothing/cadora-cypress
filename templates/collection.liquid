@@ -4,7 +4,10 @@
     {% if collection.handle == 'all' %}
       <h1>{{ 'collections.collection.all_products' | t }}</h1>
     {% else %}
-      <h1>{{ collection.title }}</h1>
+      	{% comment %}
+			For SEO reasons, I still want the DOM to have the title, just not on the view.
+		{% endcomment %}
+		<h1 style="display:none;">{{ collection.title }}</h1>
     {% endif %}
 
     {% if settings.display-collection-description and collection.description.size > 0 %}
