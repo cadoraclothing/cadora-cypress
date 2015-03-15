@@ -11,7 +11,8 @@
 {% endif %}
 
 <div class="header-wrapper {{ borderClass }} {% if settings.header-limit-width %}limit-width{% endif %}">
-  <header class="main-header clearfix {% unless shop.customer_accounts_enabled %}accounts-disabled{% endunless %}">
+  	{% include 'shipping-bar' %}
+	<header class="main-header clearfix {% unless shop.customer_accounts_enabled %}accounts-disabled{% endunless %}">
 
     <!-- Store logo / title
     =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
