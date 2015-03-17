@@ -20,7 +20,8 @@
 
   <div class="product-list-details">
     <p class="title"><a href="{{ item.url | within: collection }}">{{ item.title }}</a></p>
-    <p class="product-price">
+    <!-- remove
+	<p class="product-price">
     {% if item.available %}
       {% if item.compare_at_price_min > item.price_min %}
         <span class="price on-sale"><span class="original">{{ item.compare_at_price_min | money }}</span> {{ item.price_min | money }}</span>
@@ -31,6 +32,7 @@
       <span class="price">{{ 'products.product.sold_out' | t }}</span>
     {% endif %}
     </p>
+	-->
   </div>
 
 </article>

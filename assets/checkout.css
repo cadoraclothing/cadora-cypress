@@ -1,0 +1,15 @@
+/* Insert your own logo (upload separately) */
+#logo { 
+     height: 50px; /* Replace with height of your logo file */
+     background: url(logo-checkout.png) left center no-repeat;
+}
+
+/* Center-align the subtitle */
+#tagline {
+     text-align: center;
+}
+
+/* Hide the name of the store because we got this nifty logo now */
+#tagline .title {
+     display: none;
+}
