@@ -1,10 +1,13 @@
 <!-- BEGIN Display Author Block -->
-  <footer class="article-footer">    
-	<p class="article-author">
-		{{ article.user.first_name }} {{ article.user.last_name }}      
-    	{% if article.user.bio.size > 0 %}
+<div class="bio clearfix">
+	<div class="grv">
+		<img src="https://www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
+	</div>
+	<div class="about">
+		<p class="author">{{ article.user.first_name }} {{ article.user.last_name }}</p>
+		{% if article.user.bio.size > 0 %}
 			<p>{{ article.user.bio }}</p>
-			<p><img src="https://www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}" /></p>
-		{% endif %}		
-  </footer>
+		{% endif %}
+	</div>
+</div>
 <!-- END Display Author Block -->

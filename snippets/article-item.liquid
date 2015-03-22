@@ -27,12 +27,6 @@
     </div>
     {% endif %}
 
-    {% if article.comments_enabled? and article.comments.size > 0 %}
-      <div class="comments-wrap">
-        <a class="comments" href="{{ article.url }}#comments">{{ article.comments_count }} {{ 'blogs.article_item.comment_count' | t: count: article.comments_count }}</a>
-      </div>
-    {% endif %}
-
     {% if blog.next_article or blog.previous_article %}
     <div class="blog-pagination">
         {% if blog.previous_article %}<a class="previous" href="{{ blog.previous_article }}">{{ 'blogs.article_item.previous_post' | t }}</a>{% endif %}
@@ -52,12 +46,6 @@
       {{ article.content }}
     {% endif %}
 
-	{% if settings.blog-display-share-buttons %}
-	    <p>{% include 'share-buttons' %}</p>
-    {% endif %}
 
-    {% if settings.display-article-author %}
-		{% include 'article-byline' %}
-    {% endif %}
   </div>
 </article>
