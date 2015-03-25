@@ -82,6 +82,7 @@
       "comment_submit": "Submit",
       "previous_post": "Newer Post",
       "next_post": "Older Post",
+      "continue": "READ MORE",
       "sorry": "Oops, sorry.",
       "written_by_html": "Written by {{ author }}"
     }

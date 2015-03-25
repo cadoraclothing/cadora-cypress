@@ -38,14 +38,12 @@
 
   <div class="rte article-content">
     {% if settings.blog-use-excerpts and article.excerpt.size > 0 and index %}
-      {{ article.excerpt }}
+      {{ article.excerpt | truncatewords: 40  }}
+      <a href="{{ article.url }}">{{ 'blogs.article_item.continue' | t }}</a>
     {% elsif settings.blog-use-excerpts and article.excerpt.size < 1 and index %}
       <p>{{ article.content | strip_html | truncatewords: 50 }}</p>
-      <a href="{{ article.url }}">{{ 'blogs.article_item.continue' | t }}</a>
     {% else %}
       {{ article.content }}
     {% endif %}
-
-
   </div>
 </article>
