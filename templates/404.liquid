@@ -1,9 +1,13 @@
-<div class="page-header">
-  <h1>{{ 'general.404.header' | t }}</h1>
+<div class="description rte">
+  {{ '404-graphic.png' | file_url | img_tag }}
 </div>
 
 <div class="page-not-found-message">
-  {{ 'general.404.message' | t }} <a href="/collections/all">{{ 'general.404.continue' | t }}</a>
+  {{ 'general.404.message' | t }} </a>
+</div>
+
+<div id="comments" class="comments-wrap">
+	{% include 'disqus' %}
 </div>
 
 {% capture theme_settings_link %}

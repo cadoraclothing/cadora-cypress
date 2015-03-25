@@ -24,7 +24,7 @@
     },
     "404": {
       "header": "404 Page Not Found",
-      "message": "The page you were looking for could not be found.",
+      "message": "...but here is our pyshco dog instead - leave him a message!",
       "continue": "Continue shopping."
     },
     "search": {
